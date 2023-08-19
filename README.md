@@ -9,5 +9,5 @@ A simple menu for Godot 4 with config loading/saving
 - [ ] Settings
   - [ ] Volume
   - [ ] Resolution
-- [ ] Chicken
-- [ ] Turtle
+- [x] Chicken
+- [x] Turtle

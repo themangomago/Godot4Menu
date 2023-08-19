@@ -1,11 +1,198 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0dj17cvaj3mn"]
+[gd_scene load_steps=19 format=3 uid="uid://bkt5ra10dmenq"]
 
 [ext_resource type="Script" path="res://src/menu.gd" id="1_5hua0"]
 [ext_resource type="Theme" path="res://src/menu.theme" id="2_w570h"]
 [ext_resource type="FontFile" uid="uid://dvd81wt1ce7xo" path="res://assets/fonts/OpenSans/OpenSans-Bold.ttf" id="3_pwan6"]
+[ext_resource type="Texture2D" uid="uid://c0wo3j2ouac5y" path="res://assets/animals/chicken.png" id="4_b2igd"]
+[ext_resource type="AudioStream" uid="uid://buitdlfv6p2jo" path="res://assets/sounds/chicken.wav" id="5_44u8i"]
+[ext_resource type="Texture2D" uid="uid://bmdiftal4qgr2" path="res://assets/animals/turtle.png" id="5_xkku7"]
+[ext_resource type="AudioStream" uid="uid://td5nildcjmv5" path="res://assets/sounds/turltlemoaning.wav" id="7_tv7ah"]
+
+[sub_resource type="Animation" id="Animation_w7ts5"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7bejc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gcrvj"]
+resource_name = "poke"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -8), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c1elw"]
+_data = {
+"RESET": SubResource("Animation_7bejc"),
+"idle": SubResource("Animation_w7ts5"),
+"poke": SubResource("Animation_gcrvj")
+}
+
+[sub_resource type="Animation" id="Animation_jsp2o"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vna2w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_46w67"]
+resource_name = "walk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8i2x"]
+_data = {
+"RESET": SubResource("Animation_vna2w"),
+"idle": SubResource("Animation_jsp2o"),
+"walk": SubResource("Animation_46w67")
+}
+
+[sub_resource type="Animation" id="Animation_drblt"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(160, 208), Vector2(-88, 208)]
+}
+
+[sub_resource type="Animation" id="Animation_wrt27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 208)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k2e7r"]
+_data = {
+"RESET": SubResource("Animation_wrt27"),
+"walk": SubResource("Animation_drblt")
+}
 
 [node name="Menu" type="Control"]
 process_mode = 3
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,9 +290,62 @@ text = "QUIT"
 alignment = 0
 clip_text = true
 
+[node name="Interactable" type="Node2D" parent="."]
+
+[node name="ChickenSprite" type="Sprite2D" parent="Interactable"]
+position = Vector2(352, 224)
+scale = Vector2(4, 4)
+texture = ExtResource("4_b2igd")
+hframes = 3
+
+[node name="ChickenButton" type="TextureButton" parent="Interactable/ChickenSprite"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 8.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactable/ChickenSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_c1elw")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Interactable/ChickenSprite"]
+stream = ExtResource("5_44u8i")
+bus = &"Sound"
+
+[node name="TurtleSprite" type="Sprite2D" parent="Interactable"]
+position = Vector2(160, 208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_xkku7")
+hframes = 3
+
+[node name="TurtleButton" type="TextureButton" parent="Interactable/TurtleSprite"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 8.0
+
+[node name="AnimationWalk" type="AnimationPlayer" parent="Interactable/TurtleSprite"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_k8i2x")
+}
+
+[node name="AnimationTransition" type="AnimationPlayer" parent="Interactable/TurtleSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_k2e7r")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Interactable/TurtleSprite"]
+position = Vector2(48, 4)
+stream = ExtResource("7_tv7ah")
+bus = &"Sound"
+
 [connection signal="button_up" from="Views/Main/v/ButtonResume" to="." method="_on_button_resume_button_up"]
 [connection signal="button_up" from="Views/Main/v/ButtonNewGame" to="." method="_on_button_new_game_button_up"]
 [connection signal="button_up" from="Views/Main/v/ButtonSaveGame" to="." method="_on_button_save_game_button_up"]
 [connection signal="button_up" from="Views/Main/v/ButtonLoadGame" to="." method="_on_button_load_game_button_up"]
 [connection signal="button_up" from="Views/Main/v/ButtonSettings" to="." method="_on_button_settings_button_up"]
 [connection signal="button_up" from="Views/Main/v/ButtonQuit" to="." method="_on_button_quit_button_up"]
+[connection signal="button_up" from="Interactable/ChickenSprite/ChickenButton" to="." method="_on_chicken_button_button_up"]
+[connection signal="button_up" from="Interactable/TurtleSprite/TurtleButton" to="." method="_on_turtle_button_button_up"]

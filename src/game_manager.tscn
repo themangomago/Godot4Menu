@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://mvoyh16o75xy"]
+[gd_scene load_steps=6 format=3 uid="uid://mvoyh16o75xy"]
 
 [ext_resource type="Script" path="res://src/game_manager.gd" id="1_l4j71"]
 [ext_resource type="PackedScene" uid="uid://bgiqoub31qe8x" path="res://src/level/level.tscn" id="2_dwknt"]
-[ext_resource type="PackedScene" uid="uid://d0dj17cvaj3mn" path="res://src/menu.tscn" id="3_0c8l8"]
+[ext_resource type="PackedScene" uid="uid://bkt5ra10dmenq" path="res://src/menu.tscn" id="3_0c8l8"]
+[ext_resource type="AudioStream" uid="uid://ce64h3uecgxyu" path="res://assets/sounds/menu.wav" id="4_2fbn8"]
 
 [sub_resource type="Environment" id="Environment_tsb6q"]
 
@@ -32,3 +33,9 @@ anchor_mode = 0
 visible = false
 
 [node name="BootSplash" type="CanvasLayer" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2fbn8")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"

@@ -43,3 +43,14 @@ func _on_button_quit_button_up():
 
 func _on_button_settings_button_up():
 	pass # Replace with function body.
+
+
+func _on_chicken_button_button_up():
+	$Interactable/ChickenSprite/AnimationPlayer.play("poke")
+	$Interactable/ChickenSprite/AudioStreamPlayer2D.play()
+
+
+func _on_turtle_button_button_up():
+	$Interactable/TurtleSprite/AnimationWalk.play("walk")
+	$Interactable/TurtleSprite/AnimationTransition.play("walk")
+	$Interactable/TurtleSprite/AudioStreamPlayer2D.play()
