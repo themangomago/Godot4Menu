@@ -22,34 +22,37 @@ func _physics_process(delta):
 
 
 ## Starts a new game
-func _new_game():
+func _new_game() -> void:
 	# Reset values
 	velocity = Vector2(128, 128)
-	position = Vector2(576, 320)
+	$Body.position = Vector2(576, 320)
 	_random_color()
 	_tween_color()
+	print("Game started..")
 
 
 ## Starts a game from a save game
-func _load_game():
+func _load_game() -> void:
 	var saveable = Global.load_game()
 	if saveable.has("velocity") && saveable.has("position") && saveable.has("color"):
-		velocity = saveable.velocity
-		position = saveable.position
-		target_color = saveable.color
+		velocity = str_to_var("Vector2" + saveable.velocity)
+		$Body.position = str_to_var("Vector2" + saveable.position)
+		target_color = str_to_var("Color" + saveable.color)
+		_tween_color()
+		print("Game loaded..")
 	else:
 		printerr("Error loading game")
 
 
 ## Saves the current state
-func _save_game():
+func _save_game() -> void:
 	if Global.save_game({
 		"velocity": velocity,
-		"position": position,
+		"position": $Body.position,
 		"color": target_color
 	}) != OK:
 		printerr("Error saving game")
-
+	print("Game saved..")
 
 ## Get a random color
 func _random_color() -> void:
@@ -71,11 +74,12 @@ func _tween_color() -> void:
 
 
 ## Callback to get new color value
-func _callback_random_and_tween_color():
+func _callback_random_and_tween_color() -> void:
 	_random_color()
 	_tween_color()
 
 
-func _on_ButtonBack_button_up():
+func _on_ButtonBack_button_up() -> void:
 	Events.emit_signal("play_sound", "menu_click")
-	Events.emit_signal("menu_switch_main_menu")
+	Events.emit_signal("menu_show")
+	get_tree().paused = true

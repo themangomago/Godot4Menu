@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0dj17cvaj3mn"]
+
+[ext_resource type="Script" path="res://src/menu.gd" id="1_5hua0"]
+[ext_resource type="Theme" path="res://src/menu.theme" id="2_w570h"]
+[ext_resource type="FontFile" uid="uid://dvd81wt1ce7xo" path="res://assets/fonts/OpenSans/OpenSans-Bold.ttf" id="3_pwan6"]
+
+[node name="Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5hua0")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.172549, 0.215686, 1)
+
+[node name="Views" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main" type="Control" parent="Views"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="v" type="VBoxContainer" parent="Views/Main"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 320.0
+offset_right = 256.0
+offset_bottom = -24.0
+alignment = 2
+
+[node name="ButtonResume" type="Button" parent="Views/Main/v"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_w570h")
+theme_override_fonts/font = ExtResource("3_pwan6")
+text = "RESUME"
+alignment = 0
+clip_text = true
+
+[node name="ButtonNewGame" type="Button" parent="Views/Main/v"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_w570h")
+theme_override_fonts/font = ExtResource("3_pwan6")
+text = "NEW GAME"
+alignment = 0
+clip_text = true
+
+[node name="ButtonSaveGame" type="Button" parent="Views/Main/v"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_w570h")
+theme_override_fonts/font = ExtResource("3_pwan6")
+text = "SAVE GAME"
+alignment = 0
+clip_text = true
+
+[node name="ButtonLoadGame" type="Button" parent="Views/Main/v"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_w570h")
+theme_override_fonts/font = ExtResource("3_pwan6")
+text = "LOAD GAME"
+alignment = 0
+clip_text = true
+
+[node name="ButtonSettings" type="Button" parent="Views/Main/v"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_w570h")
+theme_override_fonts/font = ExtResource("3_pwan6")
+text = "SETTINGS"
+alignment = 0
+clip_text = true
+
+[node name="ButtonQuit" type="Button" parent="Views/Main/v"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("2_w570h")
+theme_override_fonts/font = ExtResource("3_pwan6")
+text = "QUIT"
+alignment = 0
+clip_text = true
+
+[connection signal="button_up" from="Views/Main/v/ButtonResume" to="." method="_on_button_resume_button_up"]
+[connection signal="button_up" from="Views/Main/v/ButtonNewGame" to="." method="_on_button_new_game_button_up"]
+[connection signal="button_up" from="Views/Main/v/ButtonSaveGame" to="." method="_on_button_save_game_button_up"]
+[connection signal="button_up" from="Views/Main/v/ButtonLoadGame" to="." method="_on_button_load_game_button_up"]
+[connection signal="button_up" from="Views/Main/v/ButtonSettings" to="." method="_on_button_settings_button_up"]
+[connection signal="button_up" from="Views/Main/v/ButtonQuit" to="." method="_on_button_quit_button_up"]

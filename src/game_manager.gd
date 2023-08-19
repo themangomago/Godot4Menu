@@ -3,9 +3,14 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Events.connect("menu_show", Callable(self, "_show_menu"))
+	Events.connect("menu_hide", Callable(self, "_hide_menu"))
+	_show_menu()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _show_menu():
+	$World/HUD/Menu.show()
+	$World/HUD/Menu.update_menu()
+
+func _hide_menu():
+	$World/HUD/Menu.hide()

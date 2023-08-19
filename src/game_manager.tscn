@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://mvoyh16o75xy"]
+[gd_scene load_steps=5 format=3 uid="uid://mvoyh16o75xy"]
 
 [ext_resource type="Script" path="res://src/game_manager.gd" id="1_l4j71"]
+[ext_resource type="PackedScene" uid="uid://bgiqoub31qe8x" path="res://src/level/level.tscn" id="2_dwknt"]
+[ext_resource type="PackedScene" uid="uid://d0dj17cvaj3mn" path="res://src/menu.tscn" id="3_0c8l8"]
+
+[sub_resource type="Environment" id="Environment_tsb6q"]
 
 [node name="GameManager" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,3 +15,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l4j71")
+
+[node name="World" type="Node" parent="."]
+
+[node name="Level" parent="World" instance=ExtResource("2_dwknt")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource("Environment_tsb6q")
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+anchor_mode = 0
+
+[node name="HUD" type="CanvasLayer" parent="World"]
+
+[node name="Menu" parent="World/HUD" instance=ExtResource("3_0c8l8")]
+visible = false
+
+[node name="BootSplash" type="CanvasLayer" parent="."]

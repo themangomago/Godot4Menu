@@ -10,5 +10,7 @@ signal gm_save_game()
 ## Play some sound
 signal play_sound(sound)
 
-## Switch to main menu
-signal menu_switch_main_menu()
+## Emitted from game scene to switch to main menu
+signal menu_show()
+## Emitted when menu shall hide
+signal menu_hide()
