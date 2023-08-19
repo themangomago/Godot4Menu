@@ -32,8 +32,6 @@ anchor_mode = 0
 [node name="Menu" parent="World/HUD" instance=ExtResource("3_0c8l8")]
 visible = false
 
-[node name="BootSplash" type="CanvasLayer" parent="."]
-
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2fbn8")
 volume_db = -8.0

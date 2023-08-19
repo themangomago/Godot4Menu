@@ -15,6 +15,7 @@ func _ready():
 	_random_color()
 
 func _physics_process(delta):
+	# Collide and slide
 	if $Body.get_last_slide_collision():
 		velocity = velocity.bounce($Body.get_last_slide_collision().get_normal())
 	$Body.velocity = velocity
@@ -53,6 +54,7 @@ func _save_game() -> void:
 	}) != OK:
 		printerr("Error saving game")
 	print("Game saved..")
+
 
 ## Get a random color
 func _random_color() -> void:

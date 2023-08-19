@@ -19,6 +19,7 @@ func _ready():
 	_on_resolution_update_setting(Global.user_config.resolution)
 
 
+## Check if game is active for menu options
 func update_menu() -> void:
 	if game_is_active:
 		$Views/Main/v/ButtonResume.show()

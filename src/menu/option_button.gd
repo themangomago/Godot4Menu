@@ -1,8 +1,11 @@
 extends Control
 
+## Button title
 @export var button_name: String = "Text"
+## Button type
 @export var type: Types.DataTypes = Types.DataTypes.Float
 
+## Emitted when a option is updated
 signal update_setting(value)
 
 ## Indication if its hovered

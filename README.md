@@ -1,9 +1,9 @@
 # Godot4Menu
-A simple menu for Godot 4 with config loading/saving
+A simple menu for Godot 4 with config loading/saving.
 
 
-## Requirements
-- [x] Config
+## Features
+- [x] Config loading/saving
 - [x] New Game
 - [x] Load Game
 - [x] Settings
