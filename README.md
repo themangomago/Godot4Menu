@@ -6,8 +6,8 @@ A simple menu for Godot 4 with config loading/saving
 - [x] Config
 - [x] New Game
 - [x] Load Game
-- [ ] Settings
-  - [ ] Volume
-  - [ ] Resolution
+- [x] Settings
+  - [x] Volume
+  - [x] Resolution
 - [x] Chicken
 - [x] Turtle

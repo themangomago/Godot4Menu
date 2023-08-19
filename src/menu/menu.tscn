@@ -1,29 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://bkt5ra10dmenq"]
+[gd_scene load_steps=20 format=3 uid="uid://36oyrptokqy1"]
 
-[ext_resource type="Script" path="res://src/menu.gd" id="1_5hua0"]
-[ext_resource type="Theme" path="res://src/menu.theme" id="2_w570h"]
-[ext_resource type="FontFile" uid="uid://dvd81wt1ce7xo" path="res://assets/fonts/OpenSans/OpenSans-Bold.ttf" id="3_pwan6"]
-[ext_resource type="Texture2D" uid="uid://c0wo3j2ouac5y" path="res://assets/animals/chicken.png" id="4_b2igd"]
-[ext_resource type="AudioStream" uid="uid://buitdlfv6p2jo" path="res://assets/sounds/chicken.wav" id="5_44u8i"]
-[ext_resource type="Texture2D" uid="uid://bmdiftal4qgr2" path="res://assets/animals/turtle.png" id="5_xkku7"]
-[ext_resource type="AudioStream" uid="uid://td5nildcjmv5" path="res://assets/sounds/turltlemoaning.wav" id="7_tv7ah"]
-
-[sub_resource type="Animation" id="Animation_w7ts5"]
-resource_name = "idle"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
+[ext_resource type="Script" path="res://src/menu/menu.gd" id="1_p314p"]
+[ext_resource type="Theme" uid="uid://b3q625u7kqhr4" path="res://src/menu/menu.theme" id="2_ilh1g"]
+[ext_resource type="FontFile" uid="uid://dvd81wt1ce7xo" path="res://assets/fonts/OpenSans/OpenSans-Bold.ttf" id="3_4jx4t"]
+[ext_resource type="Texture2D" uid="uid://c0wo3j2ouac5y" path="res://assets/animals/chicken.png" id="4_k4bmf"]
+[ext_resource type="PackedScene" uid="uid://d0g4lqfoh5i5i" path="res://src/menu/option_button.tscn" id="4_spgk1"]
+[ext_resource type="AudioStream" uid="uid://buitdlfv6p2jo" path="res://assets/sounds/chicken.wav" id="5_rn5ff"]
+[ext_resource type="Texture2D" uid="uid://bmdiftal4qgr2" path="res://assets/animals/turtle.png" id="6_att4o"]
+[ext_resource type="AudioStream" uid="uid://td5nildcjmv5" path="res://assets/sounds/turltlemoaning.wav" id="7_rjfnu"]
 
 [sub_resource type="Animation" id="Animation_7bejc"]
 length = 0.001
@@ -50,6 +34,23 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w7ts5"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_gcrvj"]
@@ -87,22 +88,6 @@ _data = {
 "poke": SubResource("Animation_gcrvj")
 }
 
-[sub_resource type="Animation" id="Animation_jsp2o"]
-resource_name = "idle"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="Animation" id="Animation_vna2w"]
 length = 0.001
 tracks/0/type = "value"
@@ -130,6 +115,22 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_jsp2o"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_46w67"]
 resource_name = "walk"
 length = 0.3
@@ -154,21 +155,6 @@ _data = {
 "walk": SubResource("Animation_46w67")
 }
 
-[sub_resource type="Animation" id="Animation_drblt"]
-resource_name = "walk"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(160, 208), Vector2(-88, 208)]
-}
-
 [sub_resource type="Animation" id="Animation_wrt27"]
 length = 0.001
 tracks/0/type = "value"
@@ -182,6 +168,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(160, 208)]
+}
+
+[sub_resource type="Animation" id="Animation_drblt"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(160, 208), Vector2(-88, 208)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k2e7r"]
@@ -199,7 +200,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5hua0")
+script = ExtResource("1_p314p")
 
 [node name="Bg" type="ColorRect" parent="."]
 layout_mode = 1
@@ -226,6 +227,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="Views/Main"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.239198
+anchor_right = 0.5
+anchor_bottom = 0.239198
+offset_left = -155.0
+offset_top = -35.0
+offset_right = 155.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_4jx4t")
+theme_override_font_sizes/font_size = 48
+text = "Godot4Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Views/Main"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_bottom = 26.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_4jx4t")
+theme_override_font_sizes/font_size = 16
+text = "@themangomago"
+horizontal_alignment = 2
+
 [node name="v" type="VBoxContainer" parent="Views/Main"]
 layout_mode = 1
 anchors_preset = -1
@@ -239,8 +271,8 @@ alignment = 2
 [node name="ButtonResume" type="Button" parent="Views/Main/v"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("2_w570h")
-theme_override_fonts/font = ExtResource("3_pwan6")
+theme = ExtResource("2_ilh1g")
+theme_override_fonts/font = ExtResource("3_4jx4t")
 text = "RESUME"
 alignment = 0
 clip_text = true
@@ -248,8 +280,8 @@ clip_text = true
 [node name="ButtonNewGame" type="Button" parent="Views/Main/v"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("2_w570h")
-theme_override_fonts/font = ExtResource("3_pwan6")
+theme = ExtResource("2_ilh1g")
+theme_override_fonts/font = ExtResource("3_4jx4t")
 text = "NEW GAME"
 alignment = 0
 clip_text = true
@@ -257,8 +289,8 @@ clip_text = true
 [node name="ButtonSaveGame" type="Button" parent="Views/Main/v"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("2_w570h")
-theme_override_fonts/font = ExtResource("3_pwan6")
+theme = ExtResource("2_ilh1g")
+theme_override_fonts/font = ExtResource("3_4jx4t")
 text = "SAVE GAME"
 alignment = 0
 clip_text = true
@@ -266,8 +298,8 @@ clip_text = true
 [node name="ButtonLoadGame" type="Button" parent="Views/Main/v"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("2_w570h")
-theme_override_fonts/font = ExtResource("3_pwan6")
+theme = ExtResource("2_ilh1g")
+theme_override_fonts/font = ExtResource("3_4jx4t")
 text = "LOAD GAME"
 alignment = 0
 clip_text = true
@@ -275,8 +307,8 @@ clip_text = true
 [node name="ButtonSettings" type="Button" parent="Views/Main/v"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("2_w570h")
-theme_override_fonts/font = ExtResource("3_pwan6")
+theme = ExtResource("2_ilh1g")
+theme_override_fonts/font = ExtResource("3_4jx4t")
 text = "SETTINGS"
 alignment = 0
 clip_text = true
@@ -284,9 +316,76 @@ clip_text = true
 [node name="ButtonQuit" type="Button" parent="Views/Main/v"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("2_w570h")
-theme_override_fonts/font = ExtResource("3_pwan6")
+theme = ExtResource("2_ilh1g")
+theme_override_fonts/font = ExtResource("3_4jx4t")
 text = "QUIT"
+alignment = 0
+clip_text = true
+
+[node name="Settings" type="Control" parent="Views"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="w" type="ColorRect" parent="Views/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 448.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="Label" type="Label" parent="Views/Settings/w"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -40.0
+offset_right = 104.0
+offset_bottom = -3.0
+theme_override_fonts/font = ExtResource("3_4jx4t")
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+
+[node name="v" type="VBoxContainer" parent="Views/Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 464.0
+offset_right = 528.0
+offset_bottom = -88.0
+
+[node name="Resolution" parent="Views/Settings/v" instance=ExtResource("4_spgk1")]
+layout_mode = 2
+button_name = "Resolution"
+type = 1
+
+[node name="VolumeSound" parent="Views/Settings/v" instance=ExtResource("4_spgk1")]
+layout_mode = 2
+button_name = "Sound"
+
+[node name="VolumeMusic" parent="Views/Settings/v" instance=ExtResource("4_spgk1")]
+layout_mode = 2
+button_name = "Music"
+
+[node name="ButtonBack" type="Button" parent="Views/Settings"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+offset_left = 16.0
+offset_top = 664.0
+offset_right = 256.0
+offset_bottom = 704.0
+theme = ExtResource("2_ilh1g")
+theme_override_fonts/font = ExtResource("3_4jx4t")
+text = "BACK"
 alignment = 0
 clip_text = true
 
@@ -295,7 +394,7 @@ clip_text = true
 [node name="ChickenSprite" type="Sprite2D" parent="Interactable"]
 position = Vector2(352, 224)
 scale = Vector2(4, 4)
-texture = ExtResource("4_b2igd")
+texture = ExtResource("4_k4bmf")
 hframes = 3
 
 [node name="ChickenButton" type="TextureButton" parent="Interactable/ChickenSprite"]
@@ -310,20 +409,20 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Interactable/ChickenSprite"]
-stream = ExtResource("5_44u8i")
+stream = ExtResource("5_rn5ff")
 bus = &"Sound"
 
 [node name="TurtleSprite" type="Sprite2D" parent="Interactable"]
 position = Vector2(160, 208)
 scale = Vector2(4, 4)
-texture = ExtResource("5_xkku7")
+texture = ExtResource("6_att4o")
 hframes = 3
 
 [node name="TurtleButton" type="TextureButton" parent="Interactable/TurtleSprite"]
-offset_left = -4.0
+offset_left = -10.0
 offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 8.0
+offset_right = 10.0
+offset_bottom = 12.0
 
 [node name="AnimationWalk" type="AnimationPlayer" parent="Interactable/TurtleSprite"]
 autoplay = "idle"
@@ -338,7 +437,7 @@ libraries = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Interactable/TurtleSprite"]
 position = Vector2(48, 4)
-stream = ExtResource("7_tv7ah")
+stream = ExtResource("7_rjfnu")
 bus = &"Sound"
 
 [connection signal="button_up" from="Views/Main/v/ButtonResume" to="." method="_on_button_resume_button_up"]
@@ -347,5 +446,9 @@ bus = &"Sound"
 [connection signal="button_up" from="Views/Main/v/ButtonLoadGame" to="." method="_on_button_load_game_button_up"]
 [connection signal="button_up" from="Views/Main/v/ButtonSettings" to="." method="_on_button_settings_button_up"]
 [connection signal="button_up" from="Views/Main/v/ButtonQuit" to="." method="_on_button_quit_button_up"]
+[connection signal="update_setting" from="Views/Settings/v/Resolution" to="." method="_on_resolution_update_setting"]
+[connection signal="update_setting" from="Views/Settings/v/VolumeSound" to="." method="_on_volume_sound_update_setting"]
+[connection signal="update_setting" from="Views/Settings/v/VolumeMusic" to="." method="_on_volume_music_update_setting"]
+[connection signal="button_up" from="Views/Settings/ButtonBack" to="." method="_on_button_back_button_up"]
 [connection signal="button_up" from="Interactable/ChickenSprite/ChickenButton" to="." method="_on_chicken_button_button_up"]
 [connection signal="button_up" from="Interactable/TurtleSprite/TurtleButton" to="." method="_on_turtle_button_button_up"]

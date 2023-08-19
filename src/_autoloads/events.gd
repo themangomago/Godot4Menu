@@ -7,9 +7,6 @@ signal gm_load_game()
 ## Emitted when the player wants to save a game
 signal gm_save_game()
 
-## Play some sound
-signal play_sound(sound)
-
 ## Emitted from game scene to switch to main menu
 signal menu_show()
 ## Emitted when menu shall hide

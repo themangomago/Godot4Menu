@@ -12,5 +12,6 @@ func _show_menu():
 	$World/HUD/Menu.show()
 	$World/HUD/Menu.update_menu()
 
+
 func _hide_menu():
 	$World/HUD/Menu.hide()

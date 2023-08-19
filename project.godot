@@ -21,6 +21,12 @@ Types="*res://src/_autoloads/types.gd"
 Events="*res://src/_autoloads/events.gd"
 Global="*res://src/_autoloads/global.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

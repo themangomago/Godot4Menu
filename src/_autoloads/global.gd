@@ -25,11 +25,19 @@ extends Node
 ## User config. Holds the actual config.
 var user_config := {
 	"config_version": 1.0,
-	"volume_sound": 1.0,
-	"volume_music": 1.0,
-	"resolution": Vector2(1152, 648),
-	"fullscreen": false
+	"volume_sound": 4,
+	"volume_music": 4,
+	"resolution": 0
 }
+
+## Volume options. Add more entries to make it more atomic
+const VOLUME_OPTIONS = [0.0, 0.25, 0.5, 0.75, 1.0]
+## Available resolution options
+const RESOLUTION_OPTIONS = [
+	Vector2(1280, 720),
+	Vector2(1366, 768), 
+	Vector2(1920, 1080),
+]
 
 
 func _ready() -> void:

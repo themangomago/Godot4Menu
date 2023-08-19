@@ -80,6 +80,5 @@ func _callback_random_and_tween_color() -> void:
 
 
 func _on_ButtonBack_button_up() -> void:
-	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("menu_show")
 	get_tree().paused = true
