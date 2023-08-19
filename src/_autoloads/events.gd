@@ -1,11 +1,14 @@
 extends Node
 
+## Emitted when the player wants to start a new game
+signal gm_new_game()
+## Emitted when the player wants to load a game
+signal gm_load_game()
+## Emitted when the player wants to save a game
+signal gm_save_game()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+## Play some sound
+signal play_sound(sound)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+## Switch to main menu
+signal menu_switch_main_menu()

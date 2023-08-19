@@ -14,6 +14,12 @@ config/name="Godot 4 Menu"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Types="*res://src/_autoloads/types.gd"
+Events="*res://src/_autoloads/events.gd"
+Global="*res://src/_autoloads/global.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

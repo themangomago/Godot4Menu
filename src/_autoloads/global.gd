@@ -64,3 +64,18 @@ func _save_config() -> void:
 	# Store the config in a more readable formated file
 	var file := FileAccess.open("user://config.cfg", FileAccess.WRITE)
 	file.store_string(JSON.stringify(user_config, "\t"))
+
+
+## Save game
+func save_game(saveable: Dictionary) -> Error:
+	var file := FileAccess.open("user://save.sav", FileAccess.WRITE)
+	file.store_string(JSON.stringify(saveable, "\t"))
+	#TODO: no error handling is done here rn
+	return OK
+
+
+## Load game
+func load_game() -> Dictionary:
+	var file := FileAccess.open("user://save.sav", FileAccess.READ)
+	#TODO: check file integrity and do error handling
+	return JSON.new().parse_string(file.get_as_text())

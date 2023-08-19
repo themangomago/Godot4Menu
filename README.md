@@ -4,8 +4,8 @@ A simple menu for Godot 4 with config loading/saving
 
 ## Requirements
 - [x] Config
-- [ ] New Game
-- [ ] Load Game
+- [x] New Game
+- [x] Load Game
 - [ ] Settings
   - [ ] Volume
   - [ ] Resolution
